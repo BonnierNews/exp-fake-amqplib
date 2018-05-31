@@ -120,43 +120,6 @@ describe("fake amqplib", () => {
         });
       });
     });
-    //   connection.createChannel((err, channel) => {
-    //     if (err) return done(err);
-    //     listenTmp(channel, "testing.#", (msg) => {
-    //       expect(msg.content).to.eql("foo");
-    //       done();
-    //     });
-    //     channel.publish("", "testing.dot.notation", "foo", {});
-
-    //   });
-
-    //     channel.assertExchange("");
-    //     channel.assertQueue("tmp-test-queue-2");
-    //     channel.bindQueue("tmp-test-queue-2", "", "testing.#", {});
-    //     channel.consume("tmp-test-queue-2", (msg) => {
-    //       expect(msg.content).to.eql("foo");
-    //       done();
-    //     });
-    //     channel.publish("", "testing.dot-foo.notation_\\hey.1122", "foo", {});
-    //   });
-    // });
-
-
-    // it("routing with non alpha characters and #", (done) => {
-    //   connection.createChannel((err, channel) => {
-    //     if (err) return done(err);
-
-    //     channel.assertExchange("");
-    //     channel.assertQueue("tmp-test-queue-3");
-    //     channel.bindQueue("tmp-test-queue-3", "", "testing.#", {});
-    //     channel.consume("tmp-test-queue-3", (msg) => {
-    //       expect(msg.content).to.eql("foo");
-    //       done();
-    //     });
-    //     channel.publish("", "testing.dot-foo.notation_\\hey.1122", "foo", {});
-    //   });
-    // });
-
   });
 });
 
