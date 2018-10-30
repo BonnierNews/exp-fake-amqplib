@@ -91,9 +91,10 @@ function quoteRegexp(str) {
   return (str + "").replace(/[.?+^$[\]\\(){}|-]/g, "\\$&");
 }
 
-function resetMock() {
+function resetMock(cb) {
   queues = {};
   exchanges = {};
+  if (cb) cb(); // eslint-disable-line callback-return
 }
 
 function setIfUndef(object, prop, value) {
