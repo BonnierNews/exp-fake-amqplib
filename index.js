@@ -57,8 +57,9 @@ function connect(url, options, connCallback) {
 
     function bindQueue(queue, exchange, key, args, bindCallback) {
       bindCallback = bindCallback || function () {};
-      if (!exchanges[exchange])
+      if (!exchanges[exchange]) {
         return bindCallback("Bind to non-existing exchange " + exchange);
+      }
       const re =
         "^" +
         quoteRegexp(key).replace(/#/g, ".+").replace(/\*/g, "[^\\.]+") +
@@ -72,8 +73,9 @@ function connect(url, options, connCallback) {
 
     function publish(exchange, routingKey, content, props, pubCallback) {
       pubCallback = pubCallback || function () {};
-      if (!exchanges[exchange])
+      if (!exchanges[exchange]) {
         return pubCallback("Publish to non-existing exchange " + exchange);
+      }
       const bindings = exchanges[exchange].bindings;
       const matchingBindings = bindings.filter((b) => b.regex.test(routingKey));
       matchingBindings.forEach((binding) => {
